@@ -14,12 +14,13 @@ const SingleButton = (props) => {
           color.charCodeAt(1) >= 97 && color.charCodeAt(1) <= 102
             ? "#000000"
             : "#ffffff"
-        }
-        box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.77)
+        };
+        box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.77);
       };
   `;
   const onCopyHandler = () => {
     navigator.clipboard.writeText(cssStyle);
+    props.setIsVisible(true);
   };
   return (
     <div className="single-button">

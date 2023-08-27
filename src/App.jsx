@@ -3,6 +3,7 @@ import BorderSelector from "./components/BorderSelector";
 import BoxSelector from "./components/BoxSelector";
 import SingleButton from "./components/SingleButton";
 import Values from "values.js";
+import Toast from "./components/Toast";
 function App() {
   const [color, setColor] = useState("#2954ff");
   const [border, setBorder] = useState(0);
@@ -10,6 +11,7 @@ function App() {
   const [paddingX, setPaddingX] = useState(0);
   const [paddingY, setPaddingY] = useState(0);
   const [colorList, setColorList] = useState(new Values("#2954ff").all(10));
+  const [isVisible, setIsVisible] = useState(false);
   const onSubmitHandler = (e) => {
     e.preventDefault();
     let colors = new Values(color).all(10);
@@ -84,10 +86,12 @@ function App() {
               borderRadius={borderRadius}
               paddingX={paddingX}
               paddingY={paddingY}
+              setIsVisible={setIsVisible}
             />
           );
         })}
       </div>
+      {isVisible && <Toast setIsVisible = {setIsVisible} isVisible = {isVisible}/>}
     </>
   );
 }
